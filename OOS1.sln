@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hausaufgaben", "Hausaufgaben", "{ED45374C-AE88-44EA-AA37-95A93F9679DE}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Aufgabe1", "Hausaufgaben\Aufgabe1\Aufgabe1.vcxproj", "{FB15D573-01F7-48C7-BAAB-2A5106D44E8E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1", "1", "{ED3AAC0F-492E-4234-90F0-0090FD0A164E}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Aufgabe1", "Hausaufgaben\1\Aufgabe1\Aufgabe1.vcxproj", "{FB15D573-01F7-48C7-BAAB-2A5106D44E8E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,7 +30,8 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{FB15D573-01F7-48C7-BAAB-2A5106D44E8E} = {ED45374C-AE88-44EA-AA37-95A93F9679DE}
+		{ED3AAC0F-492E-4234-90F0-0090FD0A164E} = {ED45374C-AE88-44EA-AA37-95A93F9679DE}
+		{FB15D573-01F7-48C7-BAAB-2A5106D44E8E} = {ED3AAC0F-492E-4234-90F0-0090FD0A164E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AC822514-47D4-4C2C-9AF8-389EA460E3F2}
