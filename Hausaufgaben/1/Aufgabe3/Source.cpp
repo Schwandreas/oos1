@@ -3,7 +3,7 @@
 
 int main(void)
 {
-	std::cout << "Aufgabe 3:" << char(49);
+	std::cout << "Aufgabe 3:";
 
 	const auto arrSize = 5;
 	int arr[arrSize] = {};
@@ -17,7 +17,6 @@ int main(void)
 	{
 		std::cout << "\nPlease enter an integer value: ";
 		std::cin >> *ptr;
-
 
 		auto spacerOrEnd = ']';
 		if (ptr + 1 != end)
