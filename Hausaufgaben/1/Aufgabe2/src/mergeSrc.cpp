@@ -10,10 +10,11 @@ int main(void) {
 	//programm 2
 	cout << endl << "Basis = ";
 	cin >> basis;
-	cout << "Exponent = ";
+	cout << endl << "Exponent = ";
 	cin >> exponent;
-	cout << endl << "Ergebnis: ";
-	cout << basis << exponent << " = "
+	// Need of new line
+	cout << endl << "Ergebnis: " << endl;
+	cout << endl << basis << "^"  << exponent << " = "
 		<< pow(basis, exponent);
 
 	// programm 1
