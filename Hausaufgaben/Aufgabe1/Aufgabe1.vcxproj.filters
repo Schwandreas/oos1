@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\Quellcodes-Hausaufgaben\Hausaufgabe_1\A1\setlocale.cpp">
+    <ClCompile Include="src\setlocale.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
