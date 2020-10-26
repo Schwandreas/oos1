@@ -6,9 +6,9 @@ using namespace std;
 
 int main()
 {
-	// define rawtime
+	// define rawtime and intit with cur time
 	time_t rawtime = time(0);
-	// define timeinfo pointer
+	// define timeinfo tm struct 
 	struct tm timeinfo;
 	// fill tm struct with current time expressed for the local timezone
 	localtime_s(&timeinfo, &rawtime);
