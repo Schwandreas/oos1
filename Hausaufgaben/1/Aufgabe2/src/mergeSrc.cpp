@@ -8,14 +8,14 @@ int basis2, exponent2;
 
 int main(void) {
 	//programm 2
+	// Need of new line
+	// need of ^
 	cout << endl << "Basis = ";
 	cin >> basis;
 	cout << endl << "Exponent = ";
 	cin >> exponent;
-	// Need of new line
 	cout << endl << "Ergebnis: " << endl;
-	cout << endl << basis << "^"  << exponent << " = "
-		<< pow(basis, exponent);
+	cout << endl << basis << "^"  << exponent << " = " << pow(basis, exponent);
 
 	// programm 1
 	printf("\nBasis = ");
