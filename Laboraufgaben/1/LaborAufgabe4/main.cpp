@@ -26,7 +26,7 @@ enum objectType { STEIN, SCHERE, PAPIER };
 // Struktur für einen Spieler bestehend aus Name und Wahl 
 // des Spielers
 struct player {
-	char * name;
+	string name;
 	objectType choice;
 };
 
