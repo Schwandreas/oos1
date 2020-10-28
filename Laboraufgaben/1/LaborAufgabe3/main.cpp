@@ -23,15 +23,17 @@ char labyrinth[kZeilen][kSpalten + 2];
 // Labyrinth mit # füllen
 void initialisieren() {
 	/* HIER */
-
-
-
-
-
-
-
-
-
+	auto* ptr = *labyrinth;
+	for (char* row : labyrinth)
+	{
+		char* cell = row;
+		for (int i = 0; i < kSpalten; ++i, ++cell)
+		{
+			*cell = MAUER;
+		}
+		cell[kSpalten + 1] = NL;
+		cell[kSpalten + 2] = EOS;
+	}
 }
 
 // Labyrinth auf dem Bildschirm ausgeben
@@ -41,10 +43,10 @@ void drucken() {
 	// Labyrinth ausgeben
 	/* HIER */
 
-
-
-
-
+	for (char* row : labyrinth)
+	{
+		cout << row << endl;
+	}
 }
 
 // Hilfsfunktion max
