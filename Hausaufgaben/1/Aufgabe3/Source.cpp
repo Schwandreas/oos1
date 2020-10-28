@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-#include "../../../OOS1Library/ArrayReader.h"
+#include "../../../OOS1Lib/ArrayReader.h"
 using namespace OOS1Library;
 
 int main(void)

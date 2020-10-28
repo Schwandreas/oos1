@@ -19,7 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\OOS1Library\ArrayReader.h" />
+    <ClCompile Include="ArrayReader.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ArrayReader.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
