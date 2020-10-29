@@ -23,7 +23,6 @@ char labyrinth[kZeilen][kSpalten + 2];
 // Labyrinth mit # füllen
 void initialisieren() {
 	/* HIER */
-	auto* ptr = *labyrinth;
 	for (char* row : labyrinth)
 	{
 		char* cell = row;
