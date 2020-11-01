@@ -13,7 +13,7 @@ int main()
 		cout << setfill(' ') << setw(4) << oct << k;
 		cout << setw(5) << hex << k << " ";
 		cout << std::left << setfill('+') << setw(7) << string(k % 5 + 1, '*') << " ";
-		cout << std::right << ((d < 0) ? "- " : "+ ") << setfill(' ') << setw(7) << std::noshowpos << setprecision(3) << fixed << abs(d);
+		cout << std::right << ((d < 0) ? "- " : "+ ") << setfill(' ') << setw(7) << std::noshowpos << setprecision(3) << fixed << std::abs(d);
 		cout << std::noshowpos << setfill(' ') << setw(11) << scientific << d;
 		d = d * -2;
 		cout << endl;
