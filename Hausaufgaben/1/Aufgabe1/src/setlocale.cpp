@@ -1,5 +1,5 @@
-#include <clocale>  // für setlocale
-#include <ctime>    // für time_t, struct tm, time, 
+#include <clocale>  // fÃ¼r setlocale
+#include <ctime>    // fÃ¼r time_t, struct tm, time, 
 // strftime, localtime
 #include <iostream>
 using namespace std;
@@ -15,7 +15,7 @@ int main()
 	// init buffer
 	char buffer[80] = {0};
 
-	// Derzeitige Lokalitätseinstellungen augeben
+	// Derzeitige LokalitÃ¤tseinstellungen augeben
 	// print locale // minimal === c
 	cout << "Locale ist: " << setlocale(LC_ALL,NULL) << endl;
 	// format timeinfo into buffer via 	"Preferred date and time stamp based on locale" convention
@@ -23,9 +23,9 @@ int main()
 	// print time
 	cout << "Zeit: " << buffer;
 	// print char test => not working since minimal
-	cout << " Dies ist ein Test: üäöÜÖÄß. Ok?" << endl;
+	cout << " Dies ist ein Test: Ã¼Ã¤Ã¶ÃœÃ–Ã„ÃŸ. Ok?" << endl;
 
-	// Lokalitätseinstellungen der installierten Umgebung aktivieren
+	// LokalitÃ¤tseinstellungen der installierten Umgebung aktivieren
 	setlocale(LC_ALL, "");
 	// print cur locale
 	cout << "Locale ist: " << setlocale(LC_ALL,NULL) << endl;
@@ -34,9 +34,9 @@ int main()
 	// print
 	cout << "Zeit: " << buffer;
 	// print test wortking since locale ===  English_United States.1252
-	cout << " Dies ist ein Test: üäöÜÖÄß. Ok?" << endl;
+	cout << " Dies ist ein Test: Ã¼Ã¤Ã¶ÃœÃ–Ã„ÃŸ. Ok?" << endl;
 
-	// Einzelne Lokalitätseinstellungen ändern
+	// Einzelne LokalitÃ¤tseinstellungen Ã¤ndern
 	// applies to time
 	setlocale(LC_TIME, "kor");
 	// This category applies to classification and conversion of characters, and to multibyte and wide characters
@@ -48,7 +48,7 @@ int main()
 	// print buffer
 	cout << "Zeit: " << buffer;
 	// print not working text since kor 
-	cout << " Dies ist ein Test: üäöÜÖÄß. Ok?" << endl;
+	cout << " Dies ist ein Test: Ã¼Ã¤Ã¶ÃœÃ–Ã„ÃŸ. Ok?" << endl;
 
 	return 0;
 }
