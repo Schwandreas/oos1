@@ -25,13 +25,12 @@ void initialisieren() {
 	/* HIER */
 	for (char* row : labyrinth)
 	{
-		char* cell = row;
-		for (int i = 0; i < kSpalten; ++i, ++cell)
+		for (int i = 0; i < kSpalten; ++i)
 		{
-			*cell = MAUER;
+			row[i] = MAUER;
 		}
-		cell[kSpalten + 1] = NL;
-		cell[kSpalten + 2] = EOS;
+		row[kSpalten] = NL;
+		row[kSpalten + 1] = EOS;
 	}
 }
 
@@ -44,7 +43,7 @@ void drucken() {
 
 	for (char* row : labyrinth)
 	{
-		cout << row << endl;
+		cout << row;
 	}
 }
 
