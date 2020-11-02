@@ -66,6 +66,7 @@ unique_ptr<string> object2str(objectType o)
 // Einen Text mit dem Namen des Spielers und seiner Wahl ausgeben
 void showPlayer(unique_ptr<player>& p)
 {
+	cout << *p->name << " hat das Objekt " << *object2str(*p->choice) << " gewaehlt." << endl;
 }
 
 // Die Wahl des Spielers abfragen
@@ -101,9 +102,6 @@ unique_ptr<objectType> winningObject(unique_ptr<objectType>& obj1, unique_ptr<ob
 // Ausgeben, wer gewonnen hat
 void showWinner(unique_ptr<player>& p1, unique_ptr<player>& p2)
 {
-
-	cout << *p1->name << " hat das Objekt " << *object2str(*p1->choice) << " gewaehlt." << endl;
-	cout << *p2->name << " hat das Objekt " << *object2str(*p2->choice) << " gewaehlt." << endl;
 	if (*p1->choice == *p2->choice)
 	{
 		cout << "Unentschieden!";
