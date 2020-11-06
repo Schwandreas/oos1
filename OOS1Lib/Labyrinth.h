@@ -1,8 +1,7 @@
 ﻿#pragma once
 #include <vector>
 
-#include "Position.hpp"
-
+struct Position;
 using namespace std;
 
 enum Symbole

@@ -7,6 +7,8 @@
 #include <sstream>
 #include <string>
 
+#include "../Hausaufgaben/2/Aufgabe1/Position.hpp"
+
 int Labyrinth::getSpalten() const
 {
 	return colCount;
