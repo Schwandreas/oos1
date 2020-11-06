@@ -1,28 +1,26 @@
 /*
-
 Spiel Tsching, Tschang, Tschong
-
 Regeln:
 Es gibt zwei Spieler: der Programmierer und der Computer.
 Beide Spieler waehlen gleichzeitig eines der drei Objekte
-Stein, Schere und Papier. Beide kˆnnen das gleiche Objekt w‰hlen.
-Der Spieler, der das m‰chtigere Objekt gew‰hlt hat gewinnt.
+Stein, Schere und Papier. Beide k√∂nnen das gleiche Objekt w√§hlen.
+Der Spieler, der das m√§chtigere Objekt gew√§hlt hat gewinnt.
 SCHERE kann einen STEIN nicht zerschneiden, d.h. STEIN ist 
-m‰chtiger als SCHERE. PAPIER wickelt STEIN ein, d.h. PAPIER ist 
-m‰chtiger als STEIN. SCHERE zerschneidet PAPIER, d. h. SCHERE 
+m√§chtiger als SCHERE. PAPIER wickelt STEIN ein, d.h. PAPIER ist 
+m√§chtiger als STEIN. SCHERE zerschneidet PAPIER, d. h. SCHERE 
 ist maechtiger als PAPIER
-
 */
 
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
+#include <memory>
 using namespace std;
 
-// Aufz‰hlungstyp f¸r Stein etc.
+// Aufz√§hlungstyp f√ºr Stein etc.
 enum objectType { STEIN, SCHERE, PAPIER };
 
-// Struktur f¸r einen Spieler bestehend aus Name und Wahl 
+// Struktur f√ºr einen Spieler bestehend aus Name und Wahl 
 // des Spielers
 struct player
 {
@@ -40,7 +38,7 @@ unique_ptr<string> enterName()
 	return make_unique<string>(name);
 }
 
-// Den Computer zuf‰llig waehlen lassen. 
+// Den Computer zuf√§llig waehlen lassen. 
 // Nutzen Sie srand(...) und rand().
 unique_ptr<objectType> randomChoice()
 {
@@ -49,7 +47,7 @@ unique_ptr<objectType> randomChoice()
 	return make_unique<objectType>(static_cast<objectType>(num));
 }
 
-// Die Wahl von STEIN etc. als String zur¸ckgeben lassen
+// Die Wahl von STEIN etc. als String zur√ºckgeben lassen
 unique_ptr<string> object2str(objectType o)
 {
 	switch (o)
@@ -73,15 +71,19 @@ void showPlayer(unique_ptr<player>& p)
 unique_ptr<objectType> enterChoice()
 {
 	cout << "Bitte Objektwahl eingeben (1 = Stein, 2 = Schere, 3 = Papier):";
-	uint8_t choice;
+	unsigned int choice;
 	cin >> choice;
+	cout << "Choice" << choice;
 	switch (choice)
 	{
-	case 1:
+	case 1U:
+		cout << "STEIN!!!!";
 		return make_unique<objectType>(STEIN);
-	case 2:
+	case 2U:
+		cout << "SCHERE!!!!";
 		return make_unique<objectType>(SCHERE);
 	default:
+		cout << "PAPIER!!!!";
 		return make_unique<objectType>(PAPIER);
 	}
 }
