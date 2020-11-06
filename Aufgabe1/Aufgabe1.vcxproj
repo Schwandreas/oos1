@@ -140,9 +140,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Labyrinth.h" />
+    <ClInclude Include="Position.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Labyrinth.cpp" />
+    <ClCompile Include="main_H2.cpp" />
+    <ClCompile Include="Position.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

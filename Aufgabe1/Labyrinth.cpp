@@ -1,8 +1,11 @@
 ﻿#include "Labyrinth.h"
 
 #include <conio.h>
+#include <fstream>
 #include <iostream>
 #include <ostream>
+#include <sstream>
+#include <string>
 
 int Labyrinth::getSpalten() const
 {
@@ -30,13 +33,14 @@ void Labyrinth::initialisieren()
 			row[j] = MAUER;
 		}
 		row[colCount] = NL;
-		row[colCount] = EOS;
+		row[colCount + 1] = EOS;
 		labyrinth.push_back(row);
 	}
 }
 
 void Labyrinth::drucken()
 {
+	system("cls");
 	for (char* row : labyrinth)
 	{
 		cout << row;
@@ -78,12 +82,95 @@ void Labyrinth::erzeugen()
 }
 
 
-int Labyrinth::max(int x, int y)
+void Labyrinth::exportDatei(const char* fileName)
 {
-	return (x <= y) ? y : x;
+	ofstream datei(fileName);
+	if (!datei)
+	{
+		cerr << "Kann Datei nicht oeffnen" << endl;
+	}
+	for (int i = 0; i < rowCount; i++)
+	{
+		datei << labyrinth[i];
+	}
+	datei.close();
 }
 
-int Labyrinth::min(int x, int y)
-{
-	return (x <= y) ? x : y;
+void Labyrinth::importDatei(const char* fileName) {
+	ifstream datei(fileName);
+	if (!datei) {
+		cerr << "Kann Datei nicht oeffnen" << endl;
+	}
+	std::string line;
+	vector<string> lines;
+	unsigned int shortestIndex = 0;
+
+	while (std::getline(datei, line))
+	{
+		lines.push_back(line);
+		if(line.length() <= lines[shortestIndex].length())
+		{
+			shortestIndex = lines.size() - 1;
+		}
+	}
+	datei.close();
+
+	rowCount = lines.size();
+	colCount = lines[shortestIndex].length();
+	for (string curLine : lines)
+	{
+		if (curLine[curLine.length() - 1] != EOS)
+		{
+			curLine += NL;
+			curLine += EOS;
+		}
+		char* cstr = new char[curLine.length() + 1];
+		strcpy_s(cstr, curLine.length() + 1, curLine.c_str());
+		labyrinth.push_back(cstr);
+	}
 }
+
+void Labyrinth::legeMuenzen()
+{
+	coinCount = replaceAllSymbole(WEG, MUENZE);
+}
+
+Symbole Labyrinth::getZeichenAnPos(const Position& tmp)
+{
+	return static_cast<Symbole>(labyrinth[tmp.posy][tmp.posx]);
+}
+
+
+void Labyrinth::zeichneChar(char c, Position pos)
+{
+	labyrinth[pos.posy][pos.posx] = c;
+}
+
+void Labyrinth::zeichneChar(char c, Position posalt, Position posneu)
+{
+	zeichneChar(WEG, posalt);
+	zeichneChar(c, posneu);
+}
+
+bool Labyrinth::istMuenzeAnPos(Position pos)
+{
+	return getZeichenAnPos(pos) == MUENZE;
+}
+
+int Labyrinth::replaceAllSymbole(Symbole toReplace, Symbole value)
+{
+	int replaceCount = 0;
+	for (auto row : labyrinth)
+	{
+		for (int i = 0; i < colCount; ++i)
+		{
+			if(row[i] == toReplace)
+			{
+				row[i] = value;
+				replaceCount++;
+			}
+		}
+	}
+	return replaceCount;
+}
+
