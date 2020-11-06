@@ -39,7 +39,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2", "2", "{33474E67-E51E-43
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2", "2", "{7E311A4C-D187-42EC-9382-DCC053076043}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Aufgabe1", "Aufgabe1\Aufgabe1.vcxproj", "{C4A26E0F-D2F9-44B3-A9A3-C8CC335512EA}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Aufgabe1", "Hausaufgaben\2\Aufgabe1\Aufgabe1.vcxproj", "{C4A26E0F-D2F9-44B3-A9A3-C8CC335512EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
