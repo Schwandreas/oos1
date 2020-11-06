@@ -19,10 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ArrayReader.cpp" />
+    <ClInclude Include="Labyrinth.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ArrayReader.h" />
+    <ClCompile Include="Labyrinth.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

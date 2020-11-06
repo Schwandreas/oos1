@@ -1,6 +1,7 @@
 // Datei Position.cpp
 #include "Position.hpp"
-#include "../../../src/OOS1/Aufgabe1/Labyrinth.h"
+
+#include "../../../OOS1Lib/Labyrinth.h"
 
 // Hilfsfunktion max
 int max(int x, int y) {

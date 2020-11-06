@@ -1,10 +1,10 @@
 // Main für Hausaufgabe 2
 #include <memory>
+#include "../../../OOS1Lib/Labyrinth.h"
 
-#include "Labyrinth.h"
 
 int main() {
-	unique_ptr<Labyrinth> lab = make_unique<Labyrinth>(11, 11, 5);
+	std::unique_ptr<Labyrinth> lab = make_unique<Labyrinth>(11, 11, 5);
 	lab->drucken();
 	lab->erzeugen();
 	lab->drucken();
