@@ -1,4 +1,5 @@
 #include "PacMan.hpp"
+#include "../../../OOS1Lib/Labyrinth.h"
 
 const bool kErzeugen = true;
 
