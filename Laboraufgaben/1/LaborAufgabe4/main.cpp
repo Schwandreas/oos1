@@ -1,20 +1,34 @@
+/*
+Spiel Tsching, Tschang, Tschong
+Regeln:
+Es gibt zwei Spieler: der Programmierer und der Computer.
+Beide Spieler waehlen gleichzeitig eines der drei Objekte
+Stein, Schere und Papier. Beide kÃ¶nnen das gleiche Objekt wÃ¤hlen.
+Der Spieler, der das mÃ¤chtigere Objekt gewÃ¤hlt hat gewinnt.
+SCHERE kann einen STEIN nicht zerschneiden, d.h. STEIN ist 
+mÃ¤chtiger als SCHERE. PAPIER wickelt STEIN ein, d.h. PAPIER ist 
+mÃ¤chtiger als STEIN. SCHERE zerschneidet PAPIER, d. h. SCHERE 
+ist maechtiger als PAPIER
+*/
+
 #include <cstdlib>
 #include <cstring>
 #include <ctime>
 #include <iostream>
+#include <memory>
 using namespace std;
 
-// Aufzählungstyp für Stein etc.
 enum WAHL { STEIN = 1, SCHERE = 2, PAPIER = 3 };
 
-// Struktur für einen Spieler bestehend aus Name und Wahl 
+
+// Struktur fÃ¼r einen Spieler bestehend aus Name und Wahl 
 // des Spielers
 struct player {
 	const char* name;
 	WAHL choice;
 };
 
-// Variable für den Namen des Spielers 
+// Variable fï¿½r den Namen des Spielers 
 char name[15];
 
 // Name des Spielers eingeben
@@ -25,7 +39,7 @@ char* enterName(char str[])
 	return name;
 }
 
-// Den Computer zufällig waehlen lassen. 
+// Den Computer zufÃ¤llig waehlen lassen. 
 // Nutzen Sie srand(...) und rand().
 WAHL randomChoice()
 {
@@ -44,7 +58,7 @@ WAHL randomChoice()
 
 }
 
-// Die Wahl von STEIN etc. als String zurückgeben lassen
+// Die Wahl von STEIN etc. als String zurï¿½ckgeben lassen
 const char* object2str(WAHL o)
 {
 	
@@ -78,33 +92,22 @@ WAHL enterChoice()
 	case 3: return PAPIER; break;
 	default: cout << "Fehler" << endl; break;
 	}
-
-
 }
 
 // Die Wahl bestimmen, die gewonnen hat
 WAHL winningObject(WAHL obj1, WAHL obj2)
 {
-
 	if (obj1 == STEIN && obj2 == SCHERE || obj1 == SCHERE && obj2 == PAPIER || obj1 == PAPIER && obj2 == STEIN) {
 		cout << "\nDer Computer hat gewonnen!" << endl;
 		return obj1;
-
 	}
 	else if (obj2 == STEIN && obj1 == SCHERE || obj2 == SCHERE && obj1 == PAPIER || obj2 == PAPIER && obj1 == STEIN) {
 		cout << "\nDu hast gewonnen!" << endl;
 		return obj2;
 	}
-
 	else {
-
 		cout << "\nKeiner hat gewonnen" << endl;
-
 	}
-
-
-
-
 }
 
 // Ausgeben, wer gewonnen hat
