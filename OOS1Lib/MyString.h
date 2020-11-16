@@ -17,7 +17,7 @@ public:
 
 	~MyString() { delete strPtr; }
 
-	void         reserve(unsigned int c);
+	void reserve(int c);
 	MyString&    append(MyString& str);
 	MyString&    assign(const MyString& str);
 	const char*  c_str() const;

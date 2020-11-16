@@ -8,6 +8,7 @@ void MyString::initStrPtrWithNullSym() const
 {
 	for (unsigned i = strSize; i < strCapacity + 1; ++i)
 	{
+		cout << endl << "init " << i << endl;
 		strPtr[i] = '\0';
 	}
 }
@@ -60,14 +61,14 @@ MyString::MyString(MyString&& source)
 	source.strSize = 0;
 }
 
-void MyString::reserve(unsigned c)
+void MyString::reserve(int c)
 {
 	if (strCapacity >= c)
 	{
 		return;
 	}
 
-	strPtr = static_cast<char*>(realloc(strPtr, sizeof(char) * c + 1));
+	strPtr = static_cast<char*>(realloc(strPtr, c + 1));
 	if (!strPtr)
 	{
 		cout << "realloc failed, the original pointer needs to be freed - bye, bye";
@@ -78,16 +79,20 @@ void MyString::reserve(unsigned c)
 
 MyString& MyString::append(MyString& str)
 {
+	const unsigned oldSize = this->strSize;
 	const unsigned newSize = str.size() + this->strSize;
 	if (newSize > this->strCapacity)
 	{
 		this->reserve(newSize);
 	}
 
-	for (unsigned i = strSize; i < newSize + 1; ++i)
+	for (unsigned i = oldSize; i < newSize; ++i)
 	{
-		strPtr[i] = str.at(i - strSize);
+		char x = str.at(i - oldSize);
+		strPtr[i] = x;
 	}
+	strPtr[newSize] = '\0';
+	strSize = newSize;
 	return *this;
 }
 
@@ -123,7 +128,7 @@ unsigned MyString::capacity()
 void MyString::clear()
 {
 	delete strPtr;
-	strPtr    = new char[strCapacity + 1];
+	strPtr    = new char[11];
 	strSize   = 0;
 	strPtr[0] = '\0';
 }
@@ -150,9 +155,9 @@ bool MyString::empty()
 
 char& MyString::at(unsigned i) const
 {
-	if(strSize == 0 || i > strSize)
+	if(strCapacity == 0 || i > strCapacity)
 	{
 		return strPtr[strSize];
 	}
-	return strPtr[strSize + i];
+	return strPtr[i];
 }
