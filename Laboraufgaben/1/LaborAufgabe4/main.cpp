@@ -12,118 +12,123 @@ ist maechtiger als PAPIER
 */
 
 #include <cstdlib>
+#include <cstring>
 #include <ctime>
 #include <iostream>
 #include <memory>
 using namespace std;
 
-// Aufzählungstyp für Stein etc.
-enum objectType { STEIN, SCHERE, PAPIER };
+enum WAHL { STEIN = 1, SCHERE = 2, PAPIER = 3 };
+
 
 // Struktur für einen Spieler bestehend aus Name und Wahl 
 // des Spielers
-struct player
-{
-	unique_ptr<string>     name;
-	unique_ptr<objectType> choice;
+struct player {
+	const char* name;
+	WAHL choice;
 };
 
+// Variable f�r den Namen des Spielers 
+char name[15];
 
 // Name des Spielers eingeben
-unique_ptr<string> enterName()
+char* enterName(char str[])
 {
-	string name;
-	cout << "Geben deinen Namen ein:";
+	cout << "Bitte gebe deinen Namen ein: \n" << endl;
 	cin >> name;
-	return make_unique<string>(name);
+	return name;
 }
 
 // Den Computer zufällig waehlen lassen. 
 // Nutzen Sie srand(...) und rand().
-unique_ptr<objectType> randomChoice()
+WAHL randomChoice()
 {
-	srand(time(nullptr));
-	int num = rand() % 3;
-	return make_unique<objectType>(static_cast<objectType>(num));
+	srand(time(NULL));
+	int i;
+	i = rand() % 3;
+
+	switch (i)
+	{
+	case 1:return STEIN; break;
+	case 2:return SCHERE; break;
+	case 3:return PAPIER; break;
+	default: "Fehler";
+		break;
+	}
+
 }
 
-// Die Wahl von STEIN etc. als String zurückgeben lassen
-unique_ptr<string> object2str(objectType o)
+// Die Wahl von STEIN etc. als String zur�ckgeben lassen
+const char* object2str(WAHL o)
 {
-	switch (o)
-	{
-	case STEIN:
-		return make_unique<string>("Stein");
-	case SCHERE:
-		return make_unique<string>("Schere");
-	default:
-		return make_unique<string>("Papier");
+	
+	switch (o) {
+	case STEIN: return ("Stein");
+	case SCHERE: return ("Schere");
+	case PAPIER: return ("Papier");
+	default: cout << "Fehler";
 	}
+
 }
 
 // Einen Text mit dem Namen des Spielers und seiner Wahl ausgeben
-void showPlayer(unique_ptr<player>& p)
+void showPlayer(player p)
 {
-	cout << *p->name << " hat das Objekt " << *object2str(*p->choice) << " gewaehlt." << endl;
+	cout << "\n" << p.name << " hat das Objekt " << object2str(p.choice) << " gewaehlt." << endl;
+
+
 }
 
 // Die Wahl des Spielers abfragen
-unique_ptr<objectType> enterChoice()
+WAHL enterChoice()
 {
-	cout << "Bitte Objektwahl eingeben (1 = Stein, 2 = Schere, 3 = Papier):";
-	unsigned int choice;
-	cin >> choice;
-	cout << "Choice" << choice;
-	switch (choice)
-	{
-	case 1U:
-		cout << "STEIN!!!!";
-		return make_unique<objectType>(STEIN);
-	case 2U:
-		cout << "SCHERE!!!!";
-		return make_unique<objectType>(SCHERE);
-	default:
-		cout << "PAPIER!!!!";
-		return make_unique<objectType>(PAPIER);
+	int eingabe;
+	cout << "\nBitte Objektwahl eingeben: [1=Stein, 2=Schere, 3=Papier]" << endl;
+	cin >> eingabe;
+
+	switch (eingabe) {
+	case 1: return STEIN;  break;
+	case 2: return SCHERE; break;
+	case 3: return PAPIER; break;
+	default: cout << "Fehler" << endl; break;
 	}
 }
 
 // Die Wahl bestimmen, die gewonnen hat
-unique_ptr<objectType> winningObject(unique_ptr<objectType>& obj1, unique_ptr<objectType>& obj2)
+WAHL winningObject(WAHL obj1, WAHL obj2)
 {
-	if (*obj1 == STEIN)
-		return make_unique<objectType>(*obj2 == SCHERE ? STEIN : PAPIER);
-	if (*obj1 == PAPIER)
-		return make_unique<objectType>(*obj2 == STEIN ? PAPIER : SCHERE);
-	if (*obj1 == SCHERE)
-		return make_unique<objectType>(*obj2 == PAPIER ? SCHERE : STEIN);
-
-	return make_unique<objectType>(*obj1);
+	if (obj1 == STEIN && obj2 == SCHERE || obj1 == SCHERE && obj2 == PAPIER || obj1 == PAPIER && obj2 == STEIN) {
+		cout << "\nDer Computer hat gewonnen!" << endl;
+		return obj1;
+	}
+	else if (obj2 == STEIN && obj1 == SCHERE || obj2 == SCHERE && obj1 == PAPIER || obj2 == PAPIER && obj1 == STEIN) {
+		cout << "\nDu hast gewonnen!" << endl;
+		return obj2;
+	}
+	else {
+		cout << "\nKeiner hat gewonnen" << endl;
+	}
 }
 
 // Ausgeben, wer gewonnen hat
-void showWinner(unique_ptr<player>& p1, unique_ptr<player>& p2)
+void showWinner(player p1, player p2)
 {
-	if (*p1->choice == *p2->choice)
-	{
-		cout << "Unentschieden!";
-		return;
-	}
-	unique_ptr<objectType> winObj = winningObject(p1->choice, p2->choice);
-	player*                winner = (*(p1->choice) == *winObj) ? p1.get() : p2.get();
-	cout << *winner->name << " hat gewonnen!";
+
+	winningObject(p1.choice, p2.choice);
+
 }
 
 int main()
 {
-	unique_ptr<player> player1 = make_unique<player>();
-	unique_ptr<player> player2 = make_unique<player>();
-	player1->name              = make_unique<string>("Computer");
-	player1->choice            = move(randomChoice());
+	player player1, player2;
+	player1.name = "Computer";
+	player1.choice = randomChoice();
 	cout << "Der Computer hat sein Wahl getroffen." << endl;
-	player2->name   = move(enterName());
-	player2->choice = move(enterChoice());
+	player2.name = enterName(name);
+	player2.choice = enterChoice();
 	showPlayer(player1);
 	showPlayer(player2);
 	showWinner(player1, player2);
+
+	return 0;
 }
