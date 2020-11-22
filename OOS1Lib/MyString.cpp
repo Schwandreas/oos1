@@ -8,7 +8,6 @@ void MyString::initStrPtrWithNullSym() const
 {
 	for (unsigned i = strSize; i < strCapacity + 1; ++i)
 	{
-		cout << endl << "init " << i << endl;
 		strPtr[i] = '\0';
 	}
 }
