@@ -9,16 +9,16 @@ class Fifo {
     char* ptr;
 
 public:
-    Fifo(int size = 20) : maxSize(size) { ptr = new char[maxSize]; }
+    Fifo(int size = 20);
 
-    ~Fifo() { delete[] ptr; }
+    ~Fifo();
 
-    int getWPos() { return wPos; }
-    int getRPos() { return rPos; }
+    int getWPos() const;
+    int getRPos() const;
 
 
-    bool isEmpty() { return number == 0; }
-    bool isFull() { return number == maxSize; }
+    bool isEmpty() const;
+    bool isFull() const;
 
     int push(char c);
     char pop();
