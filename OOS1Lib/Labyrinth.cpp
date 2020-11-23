@@ -9,6 +9,14 @@
 
 #include "../Hausaufgaben/2/Aufgabe1/Position.hpp"
 
+Labyrinth::~Labyrinth()
+{
+	for (char* row : labyrinth)
+	{
+		delete[] row;
+	}
+}
+
 int Labyrinth::getSpalten() const
 {
 	return colCount;

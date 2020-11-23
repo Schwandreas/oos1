@@ -32,6 +32,8 @@ public:
 		initialisieren();
 	}
 
+	~Labyrinth();
+
 	int     getZeilen() const;
 	int     getSpalten() const;
 	int     getAnzGeister() const;
