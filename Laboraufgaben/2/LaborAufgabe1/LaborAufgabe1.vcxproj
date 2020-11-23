@@ -145,7 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PacMan.hpp" />
-    <ClInclude Include="Spieler.h" />
+    <ClInclude Include="Spieler.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\OOS1Lib\OOS1Lib.vcxproj">

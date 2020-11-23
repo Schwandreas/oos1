@@ -29,7 +29,7 @@
     <ClInclude Include="PacMan.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Spieler.h">
+    <ClInclude Include="Spieler.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

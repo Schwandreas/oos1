@@ -1,5 +1,6 @@
 #include <iostream>
-#include "../../../OOS1Lib/MyString.h"
+
+#include "../../../OOS1Lib/MyString.hpp"
 using namespace std;
 
 int main() {

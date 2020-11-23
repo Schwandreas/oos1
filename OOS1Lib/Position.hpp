@@ -1,7 +1,6 @@
 // Datei Position.hpp
 #pragma once
 
-// Vorwärtsdeklaration der Klasse Labyrinth
 class Labyrinth;
 
 // Die Laufrichtung (Orientierung) als Aufzählungstypen
@@ -12,7 +11,8 @@ enum Richtung { RECHTS, LINKS, OBEN, UNTEN };
 // im Labyrinth
 // Als struct realisiert, damit später direkt auf posx und posy 
 // zugegriffen werden kann.
-struct Position {
+struct Position
+{
 	// Position in den Spalten
 	int posx;
 	// Position in den Zeilen
@@ -26,9 +26,8 @@ struct Position {
 	// Der int = 0 gibt an, dass die Mauern berücksichtigt werden.
 	// Wenn int != 0, dann kann auch durch Mauern gelaufen werden.
 	// Dies ist für das Erstellen von Labyrinthen notwendig.
-	Position & schritt(Labyrinth &, int = 0);
+	Position& schritt(const Labyrinth&, int = 0);
 	// Zwei Positionen vergleichen, 
 	// liefert true, wenn x und y gleich
-	bool istGleichZu(Position &);
+	bool istGleichZu(Position&);
 };
-

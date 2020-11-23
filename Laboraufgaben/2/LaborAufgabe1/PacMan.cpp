@@ -6,7 +6,7 @@
 #include <iostream>
 #include "PacMan.hpp"
 
-#include "../../../Hausaufgaben/2/Aufgabe1/Labyrinth.h"
+#include "../../../OOS1Lib/Labyrinth.hpp"
 using namespace std;
 
 // Konstruktor

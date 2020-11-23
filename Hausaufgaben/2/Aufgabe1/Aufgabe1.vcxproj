@@ -139,11 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Position.hpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="main_H2.cpp" />
-    <ClCompile Include="Position.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\OOS1Lib\OOS1Lib.vcxproj">

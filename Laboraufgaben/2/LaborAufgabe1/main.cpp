@@ -1,7 +1,7 @@
 #include "PacMan.hpp"
-#include "../../../OOS1Lib/Labyrinth.h"
+#include "../../../OOS1Lib/Labyrinth.hpp"
 
-const bool kErzeugen = true;
+const bool kErzeugen = false;
 
 int main() {
 	Labyrinth lab;

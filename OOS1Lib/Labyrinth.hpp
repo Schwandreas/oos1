@@ -1,7 +1,8 @@
-﻿#pragma once
-#include <vector>
+﻿#ifndef OOS1LIB_Labyrinth
+#define OOS1LIB_Labyrinth
 
-struct Position;
+#include <vector>
+#include "Position.hpp"
 using namespace std;
 
 enum Symbole
@@ -18,21 +19,21 @@ enum Symbole
 class Labyrinth
 {
 public:
-	int rowCount;
-	int colCount;
-	int ghostCount;
+	int rowCount = 11;
+	int colCount = 11;
+	int ghostCount = 5;
 	int coinCount;
 
 	std::vector<char*> labyrinth;
-	Labyrinth() = default;
-
+	Labyrinth()
+	{
+		initialisieren();
+	}
 	Labyrinth(const int rows, const int cols, const int ghosts): rowCount(rows), colCount(cols), ghostCount(ghosts),
 	                                                             coinCount(0)
 	{
 		initialisieren();
 	}
-
-	~Labyrinth();
 
 	int     getZeilen() const;
 	int     getSpalten() const;
@@ -45,8 +46,10 @@ public:
 	void    legeMuenzen();
 	void    zeichneChar(char c, Position pos);
 	void    zeichneChar(char c, Position posalt, Position posneu);
-	Symbole getZeichenAnPos(const Position& tmp);
+	Symbole getZeichenAnPos(const Position& tmp) const;
 	bool    istMuenzeAnPos(Position pos);
+	int     getMuenzen();
 private:
 	int replaceAllSymbole(Symbole toReplace, Symbole value);
 };
+#endif

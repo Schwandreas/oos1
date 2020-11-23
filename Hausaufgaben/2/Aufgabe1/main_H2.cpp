@@ -1,6 +1,6 @@
 // Main für Hausaufgabe 2
 #include <memory>
-#include "../../../OOS1Lib/Labyrinth.h"
+#include "../../../OOS1Lib/Labyrinth.hpp"
 
 
 int main() {

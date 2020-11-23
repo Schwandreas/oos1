@@ -1,4 +1,5 @@
-#pragma once
+#ifndef OOS1LIB_MYSTRING
+#define OOS1LIB_MYSTRING
 class MyString
 {
 private:
@@ -15,9 +16,9 @@ public:
 
 	MyString(MyString&& source);
 
-	~MyString() { delete strPtr; }
+	~MyString();
 
-	void reserve(int c);
+	void         reserve(unsigned int c);
 	MyString&    append(MyString& str);
 	MyString&    assign(const MyString& str);
 	const char*  c_str() const;
@@ -25,5 +26,6 @@ public:
 	unsigned int capacity();
 	void         clear();
 	bool         empty();
-	char&        at(unsigned int i) const;
+	char&        at(unsigned i);
 };
+#endif

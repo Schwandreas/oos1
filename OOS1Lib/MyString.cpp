@@ -1,4 +1,5 @@
-#include "MyString.h"
+#include "MyString.hpp"
+
 
 #include <iostream>
 
@@ -13,11 +14,11 @@ void MyString::initStrPtrWithNullSym() const
 }
 
 MyString::MyString()
-	: strPtr{nullptr}
+	: strPtr{ nullptr }
 {
 	strCapacity = 10;
-	strPtr      = new char[strCapacity + 1];
-	strSize     = 0;
+	strPtr = new char[strCapacity + 1];
+	strSize = 0;
 	initStrPtrWithNullSym();
 }
 
@@ -26,16 +27,16 @@ MyString::MyString(const char* val)
 	if (val == nullptr)
 	{
 		strCapacity = 10;
-		strPtr      = new char[strCapacity + 1];
-		strSize     = 0;
+		strPtr = new char[strCapacity + 1];
+		strSize = 0;
 		initStrPtrWithNullSym();
 	}
 
 	else
 	{
-		strSize     = strlen(val);
+		strSize = strlen(val);
 		strCapacity = strSize;
-		strPtr      = new char[strCapacity + 1];
+		strPtr = new char[strCapacity + 1];
 
 		strcpy_s(strPtr, strCapacity + 1, val);
 	}
@@ -44,23 +45,23 @@ MyString::MyString(const char* val)
 MyString::MyString(const MyString& source)
 {
 	const unsigned size = source.strSize + 1;
-	strPtr              = new char[size];
+	strPtr = new char[size];
 	strcpy_s(strPtr, size, source.strPtr);
 
 	strCapacity = source.strCapacity;
-	strSize     = source.strSize;
+	strSize = source.strSize;
 }
 
 MyString::MyString(MyString&& source)
 {
-	strPtr         = source.strPtr;
-	strCapacity    = source.strCapacity;
-	strSize        = source.strSize;
-	source.strPtr  = nullptr;
+	strPtr = source.strPtr;
+	strCapacity = source.strCapacity;
+	strSize = source.strSize;
+	source.strPtr = nullptr;
 	source.strSize = 0;
 }
 
-void MyString::reserve(int c)
+void MyString::reserve(unsigned int c)
 {
 	if (strCapacity >= c)
 	{
@@ -100,11 +101,11 @@ MyString& MyString::assign(const MyString& str)
 	delete strPtr;
 
 	const unsigned size = str.strSize + 1;
-	strPtr              = new char[size];
+	strPtr = new char[size];
 	strcpy_s(strPtr, size, str.strPtr);
 
 	strCapacity = str.strCapacity;
-	strSize     = str.strSize;
+	strSize = str.strSize;
 
 	return *this;
 }
@@ -127,8 +128,8 @@ unsigned MyString::capacity()
 void MyString::clear()
 {
 	delete strPtr;
-	strPtr    = new char[11];
-	strSize   = 0;
+	strPtr = new char[11];
+	strSize = 0;
 	strPtr[0] = '\0';
 }
 
@@ -152,11 +153,15 @@ bool MyString::empty()
 }
 
 
-char& MyString::at(unsigned i) const
+char& MyString::at(unsigned i)
 {
-	if(strCapacity == 0 || i > strCapacity)
+	if (strCapacity == 0 || i > strCapacity)
 	{
 		return strPtr[strSize];
 	}
 	return strPtr[i];
+}
+
+MyString::~MyString() {
+	delete[] strPtr;
 }

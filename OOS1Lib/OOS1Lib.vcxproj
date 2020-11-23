@@ -19,12 +19,16 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Labyrinth.h" />
-    <ClInclude Include="MyString.h" />
+    <ClInclude Include="Fifo.hpp" />
+    <ClInclude Include="Labyrinth.hpp" />
+    <ClInclude Include="MyString.hpp" />
+    <ClInclude Include="Position.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Fifo.cpp" />
     <ClCompile Include="Labyrinth.cpp" />
     <ClCompile Include="MyString.cpp" />
+    <ClCompile Include="Position.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

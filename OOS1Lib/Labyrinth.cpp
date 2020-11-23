@@ -1,4 +1,4 @@
-﻿#include "Labyrinth.h"
+﻿#include "Labyrinth.hpp"
 
 #include <conio.h>
 #include <fstream>
@@ -7,15 +7,6 @@
 #include <sstream>
 #include <string>
 
-#include "../Hausaufgaben/2/Aufgabe1/Position.hpp"
-
-Labyrinth::~Labyrinth()
-{
-	for (char* row : labyrinth)
-	{
-		delete[] row;
-	}
-}
 
 int Labyrinth::getSpalten() const
 {
@@ -107,6 +98,8 @@ void Labyrinth::exportDatei(const char* fileName)
 }
 
 void Labyrinth::importDatei(const char* fileName) {
+	labyrinth.clear();
+	
 	ifstream datei(fileName);
 	if (!datei) {
 		cerr << "Kann Datei nicht oeffnen" << endl;
@@ -145,7 +138,7 @@ void Labyrinth::legeMuenzen()
 	coinCount = replaceAllSymbole(WEG, MUENZE);
 }
 
-Symbole Labyrinth::getZeichenAnPos(const Position& tmp)
+Symbole Labyrinth::getZeichenAnPos(const Position& tmp) const
 {
 	return static_cast<Symbole>(labyrinth[tmp.posy][tmp.posx]);
 }
@@ -165,6 +158,11 @@ void Labyrinth::zeichneChar(char c, Position posalt, Position posneu)
 bool Labyrinth::istMuenzeAnPos(Position pos)
 {
 	return getZeichenAnPos(pos) == MUENZE;
+}
+
+int Labyrinth::getMuenzen()
+{
+	return coinCount;
 }
 
 int Labyrinth::replaceAllSymbole(Symbole toReplace, Symbole value)
