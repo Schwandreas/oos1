@@ -48,7 +48,10 @@ int Fifo::push(char c)
 char Fifo::pop()
 {
 	if (number-- <= 0)
-		return (char)((number = 0) - 1); //Set number=0 and return -1
+	{
+		number = 0;
+		return '\0';
+	}
 
 	int pos = rPos++;
 	if (rPos >= maxSize)
