@@ -10,7 +10,7 @@ int main() {
 
     std::cout << "Number: " << Kunde::getAnzahl() << std::endl;
 
-    Kunde kunde1((char*)"Mathis", "Ostfildern", 22);
+    Kunde kunde1("Mathis", "Ostfildern", 22);
     kunde1.print();
 
     std::cout << "Number: " << Kunde::getAnzahl() << std::endl;
