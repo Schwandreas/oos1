@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{77f2dae7-95a3-4172-b5ac-a68e11c6c854}</ProjectGuid>
-    <RootNamespace>LaborAufgabe1</RootNamespace>
+    <ProjectGuid>{808a4ccf-bc1b-48be-98a8-f0295f375c71}</ProjectGuid>
+    <RootNamespace>Aufgabe1</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -138,6 +138,13 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="ObjectCounter.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ObjectCounter.hpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
