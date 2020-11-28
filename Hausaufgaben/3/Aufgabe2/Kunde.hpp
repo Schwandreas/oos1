@@ -1,36 +1,35 @@
-//
-// Created by simon on 13.05.2017.
-//
-
-#ifndef LABOR_3_KUNDE_HPP
-#define LABOR_3_KUNDE_HPP
+#ifndef LABOR_3_KUNDE
+#define LABOR_3_KUNDE
 
 
-class Kunde {
-    const char *name;
-    const char *ort;
-    int *alter;
-    double umsatz = 0;
-    int transaktion = 0;
-    int id;
+class Kunde
+{
+	const char* name;
+	const char* ort;
+	int*        alter;
+	double      umsatz      = 0;
+	int         transaktion = 0;
+	int         id;
 
-    static int anzahl;
+	static int anzahl;
 public:
-    Kunde(const char *name = "None", const char *ort = "None", int alter = 0)
-            : name(name), ort(ort), alter(&alter)
-    { this->id = Kunde::anzahl++; }
+	Kunde(const char* name = "None", const char* ort = "None", int alter = 0)
+		: name(name), ort(ort), alter(&alter)
+	{
+		this->id = Kunde::anzahl++;
+	}
 
-    Kunde(const Kunde &obj);
+	Kunde(const Kunde& obj);
 
-    ~Kunde();
+	~Kunde();
 
 public:
-    void kaufe(double u);
+	void kaufe(double u);
 
-    void print();
+	void print();
 
-    static int getAnzahl() { return Kunde::anzahl; }
+	static int getAnzahl() { return Kunde::anzahl; }
 };
 
 
-#endif //LABOR_3_KUNDE_HPP
+#endif
