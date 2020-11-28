@@ -7,8 +7,8 @@
 
 
 class Kunde {
-    char *name;
-    char *ort;
+    const char *name;
+    const char *ort;
     int *alter;
     double umsatz = 0;
     int transaktion = 0;
@@ -16,7 +16,7 @@ class Kunde {
 
     static int anzahl;
 public:
-    Kunde(char *name = (char *) "None", char *ort = (char *) "None", int alter = 0)
+    Kunde(const char *name = "None", const char *ort = "None", int alter = 0)
             : name(name), ort(ort), alter(&alter)
     { this->id = Kunde::anzahl++; }
 
