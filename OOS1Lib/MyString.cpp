@@ -184,3 +184,30 @@ MyString::~MyString()
 {
 	delete[] strPtr;
 }
+
+
+MyString MyString::operator+(const MyString& mys) const {
+	MyString str(*this);
+	str.append(mys);
+	return str;
+}
+
+char& MyString::operator[](int i) {
+	return at((unsigned int)i);
+}
+
+bool MyString::operator==(const MyString& rhs) const {
+	return strcmp(c_str(), rhs.c_str()) == 0;
+}
+
+MyString& MyString::operator=(const MyString& mys) {
+	if(this != & mys)
+	{
+		assign(mys);
+	}
+	return *this;
+}
+
+ostream& operator<<(std::ostream& os, const MyString& string) {
+	return os << string.c_str();
+}
