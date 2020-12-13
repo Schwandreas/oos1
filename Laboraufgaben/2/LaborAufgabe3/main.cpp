@@ -1,6 +1,9 @@
 #include <iostream>
-#include "Circle.hpp"
-#include "Polygonline.hpp"
+
+
+#include "../../../OOS1Lib/Circle.hpp"
+#include "../../../OOS1Lib/Point.hpp"
+#include "../../../OOS1Lib/Polygonline.hpp"
 using namespace std;
 
 void a();

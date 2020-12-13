@@ -68,12 +68,13 @@ void MyString::reserve(unsigned int c)
 		return;
 	}
 
-	strPtr = static_cast<char*>(realloc(strPtr, c + 1));
+	const auto ptr = static_cast<char*>(realloc(strPtr, c + 1));
 	if (!strPtr)
 	{
 		cout << "realloc failed, the original pointer needs to be freed - bye, bye";
 		free(strPtr);
 	}
+	strPtr = ptr;
 	strCapacity = c;
 }
 
@@ -133,12 +134,12 @@ const char* MyString::c_str() const
 	return strPtr;
 }
 
-unsigned MyString::size()
+unsigned MyString::size() const
 {
 	return strSize;
 }
 
-unsigned MyString::capacity()
+unsigned MyString::capacity() const
 {
 	return strCapacity;
 }
@@ -151,7 +152,7 @@ void MyString::clear()
 	strPtr[0] = '\0';
 }
 
-bool MyString::empty()
+bool MyString::empty() const
 {
 	if (strSize == 0)
 	{

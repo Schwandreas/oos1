@@ -30,10 +30,10 @@ public:
 	MyString&    append(const MyString& str);
 	MyString&    assign(const MyString& str);
 	const char*  c_str() const;
-	unsigned int size();
-	unsigned int capacity();
+	unsigned     size() const;
+	unsigned int capacity() const;
 	void         clear();
-	bool         empty();
+	bool         empty() const;
 	char&        at(unsigned i);
 };
 #endif

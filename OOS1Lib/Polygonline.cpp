@@ -4,7 +4,12 @@
 
 #include <iomanip>
 #include <ios>
+#include <iostream>
 #include <sstream>
+
+
+#include "PlgElement.cpp"
+#include "Point.hpp"
 
 Polygonline::Polygonline(Point p1) {
     addPoint(p1);
