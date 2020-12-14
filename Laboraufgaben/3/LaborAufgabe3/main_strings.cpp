@@ -46,7 +46,9 @@ int main(void)
 	}
 	else if (userInput.find('(') != std::string::npos)
 	{
+		istringstream is(userInput);
 		Point point(userInput);
+		is >> point;
 		point.print(true);
 	}
 	else
