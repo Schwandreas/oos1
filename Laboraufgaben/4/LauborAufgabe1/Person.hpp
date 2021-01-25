@@ -2,6 +2,8 @@
 #pragma once
 
 #include <string>
+#include <ostream>
+
 using namespace std;
 
 // Klasse für alle Personen, die Medien ausleihen können
@@ -13,13 +15,16 @@ class Person {
 	int ausleihdauer;
 public:
 	// Standardkonstruktor
-	Person(string name, int dauer = 0);
+	Person(string name, int dauer = 0) : name(name), ausleihdauer(dauer) {}
 	// den Namen zurückliefern
-	string getName() const;
+	string getName() const {return name;}
 	// die Ausliehdauer zurückliefern
-	int getAusleihdauer() const;
+	int getAusleihdauer() const {return ausleihdauer;}
 	// die Person auf der Konsole ausgeben
-	void print() const;
+	virtual void print() const;
 };
 
+void Person::print() const {
+	std::cout << "name: " << this->name << " ausleihdauer: " << this->ausleihdauer;
+}
 

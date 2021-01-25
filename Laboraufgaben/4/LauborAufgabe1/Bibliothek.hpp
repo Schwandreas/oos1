@@ -11,7 +11,7 @@
 // können.
 class Bibliothek {
 	// Anzahl der in der im Bibliothekskatalog verzeichneten Medien
-	int anz;
+	int anz = 0;
 	// maximale Anzahl der Medien im Katalog
 	const int maxAnz;
 	// Zeiger auf das Array der Zeiger auf die Medien im Katalog
@@ -35,3 +35,49 @@ public:
 	// alle Medien in der Konsole ausgeben
 	void print() const;
 };
+
+Bibliothek::Bibliothek(int maxAnz) : maxAnz(maxAnz) {
+	medien = new Medium*[maxAnz];
+}
+
+Bibliothek::~Bibliothek() {
+    for (int i = 0; i < anz; ++i) {
+        delete medien[i];
+    }
+
+    delete[] medien;
+}
+
+void Bibliothek::mediumBeschaffen(Buch & inputBuch) {
+    Buch * b = new Buch(inputBuch.getTitel(), inputBuch.getAutor(), inputBuch.getVerlag(), inputBuch.getJahr());
+    medien[anz++] = b;
+}
+
+void Bibliothek::mediumBeschaffen(DVD & inputDvd) {
+    DVD * d =  new DVD(inputDvd.getTitel(), inputDvd.getVerlag(), inputDvd.getJahr(), inputDvd.getDauer());
+    medien[anz++] = d;
+}
+
+inline void Bibliothek::mediumSuchen(string suchwort) {
+	cout << endl << "Suche nach \"" << suchwort << "\. Ergebnis:" << endl << endl;
+
+    for (int i = 0; i < anz; ++i) {
+        if(medien[i]->getTitel().find(suchwort) != std::string::npos)
+        {
+			cout << "Medium " << i << ":" << endl;
+	        medien[i]->print();
+        }
+    }
+}
+
+void Bibliothek::mediumAusleihen(int nr, Person &p, Datum d) {
+    medien[nr]->ausleihen(p, d, d + p.getAusleihdauer() );
+}
+
+void Bibliothek::print() const {
+	cout << endl << "##### Bibliothek #####" << endl << endl;
+
+    for (int i = 0; i < anz; ++i) {
+        medien[i]->print();
+    }
+}

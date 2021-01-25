@@ -4,12 +4,20 @@
 #include "Medium.hpp"
 
 // Klasse für die DVDs als Spezialisierung von Medium
-class DVD {
+class DVD : public Medium{
 	// Abspieldauer der DVD
 	const int dauer;
 public:
+	const int getDauer() const { return dauer; }
+
+public:
 	// Standardkonstruktor
-	DVD(string t = "", string v = "", int j = 0, int d = 0);
+	DVD(string t = "", string v = "", int j = 0, int d = 0) : Medium(t, v, j, "DVD"), dauer(d) {}
 	// die DVD auf der Konsole ausgeben
 	void print() const;
 };
+
+void DVD::print() const {
+	Medium::print();
+	std::cout << "Dauer:      " << this->dauer << std::endl;
+}
