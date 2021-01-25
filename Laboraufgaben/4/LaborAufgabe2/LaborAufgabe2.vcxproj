@@ -21,10 +21,9 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{ffbc3c7c-8dfd-400a-9273-af8534741cdf}</ProjectGuid>
-    <RootNamespace>LauborAufgabe1</RootNamespace>
+    <ProjectGuid>{b28af29e-1967-44ad-8e32-ab4b2a8f963b}</ProjectGuid>
+    <RootNamespace>LaborAufgabe2</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>LaborAufgabe1</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -141,16 +140,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Bibliothek.hpp" />
-    <ClInclude Include="Buch.hpp" />
-    <ClInclude Include="Datum.hpp" />
-    <ClInclude Include="Dozent.hpp" />
-    <ClInclude Include="DVD.hpp" />
-    <ClInclude Include="Medium.hpp" />
-    <ClInclude Include="Person.hpp" />
-    <ClInclude Include="Student.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
