@@ -114,3 +114,8 @@ Polygonline& Polygonline::operator+(const Polygonline& p) {
     appendPolygonline(p);
     return *this;
 }
+
+Polygonline::~Polygonline() {
+    if (debugConstructor)
+        std::cout << "Destruktor der Klasse <Circle>, Object: <" << getId() << ">" << std::endl;
+}

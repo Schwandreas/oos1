@@ -4,11 +4,14 @@
 #include "PlgElement.hpp"
 #include "Point.hpp"
 
-class Polygonline {
+class Polygonline : public OneDimObject {
     PlgElement* start = nullptr, * end = nullptr;
 
 public:
-    Polygonline() {};
+    Polygonline() {
+        if (debugConstructor)
+            std::cout << "Konstruktor der Klasse <Polygonline>, Object: <" << getId() << ">" << std::endl;
+    };
     Polygonline(Point p1);
     Polygonline(std::string& str);
 
@@ -25,6 +28,7 @@ public:
 
     Polygonline& operator+(const Point& p);
     Polygonline& operator+(const Polygonline& p);
+    ~Polygonline();
 
     friend std::ostream& operator<<(std::ostream& stream, const Polygonline& line);
 };

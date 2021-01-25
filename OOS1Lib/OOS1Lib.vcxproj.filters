@@ -42,6 +42,12 @@
     <ClInclude Include="PlgElement.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="OneDimObject.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawingObject.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Labyrinth.cpp">
@@ -69,6 +75,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PlgElement.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawingObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OneDimObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

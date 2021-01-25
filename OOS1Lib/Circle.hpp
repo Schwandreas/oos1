@@ -1,7 +1,7 @@
 #pragma once
 #include "Point.hpp"
 
-class Circle {
+class Circle: public OneDimObject {
     Point centre;
     double radius;
 
@@ -11,6 +11,14 @@ public:
     Circle(Point centre, double radius = 0) : centre(centre), radius(radius) {}
 
     Circle(std::string& str);
+    ~Circle();
+
+    Circle(const Circle& circle) : radius(circle.radius)
+    {
+        centre = Point(circle.centre.getX(), circle.centre.getY());
+        if (debugConstructor)
+            std::cout << "Copy Konstruktor der Klasse <Circle>, Object: <" << getId() << ">" << std::endl;
+    }
 
     Point& getCentre() { return centre; }
     void setCentre(const Point& centre) { Circle::centre = centre; }

@@ -38,3 +38,8 @@ Circle::Circle(std::string& str) {
 std::ostream& operator<<(std::ostream& stream, Circle& c) {
     return stream << c.toString();
 }
+
+Circle::~Circle() {
+    if (debugConstructor)
+        std::cout << "Destruktor der Klasse <Circle>, Object: <" << getId() << ">" << std::endl;
+}

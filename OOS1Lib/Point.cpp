@@ -113,3 +113,7 @@ Point operator-(const Point& a, const Point& b) {
     returnPoint.move(-b.getX(), -b.getY());
     return returnPoint;
 }
+Point::~Point() {
+    if (debugConstructor)
+        std::cout << "Destruktor der Klasse <Point>, Object: <" << getId() << ">" << std::endl;
+}

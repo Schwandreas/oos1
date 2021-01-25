@@ -2,12 +2,22 @@
 
 #include <ostream>
 
-class Point {
+#include "OneDimObject.hpp"
+
+class Point : public OneDimObject {
     double x, y;
 
 public:
-    Point(double x = 0, double y = 0) : x(x), y(y) {}
+    Point(double x = 0, double y = 0) : x(x), y(y) {
+        if (debugConstructor)
+            std::cout << "Konstruktor der Klasse <Point>, Object: <" << getId() << ">" << std::endl;
+    }
     Point(std::string& str);
+    Point(const Point& p) : x(p.x), y(p.y) {
+        if (debugConstructor)
+            std::cout << "Copy Konstruktor der Klasse <Point>, Object: <" << getId() << ">" << std::endl;
+    }
+    ~Point();
 
     double getX() const { return x; }
     void setX(double x) { this->x = x; }
