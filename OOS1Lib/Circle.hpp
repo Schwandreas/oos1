@@ -1,24 +1,18 @@
 #pragma once
 #include "Point.hpp"
 
-class Circle: public OneDimObject {
+class Circle: public OneDimObject, public MyData {
     Point centre;
     double radius;
 
 public:
+    MyData* clone() const override;
+
+    Circle(Point centre, double radius = 0);
     Circle(double x = 0, double y = 0, double radius = 0) : Circle(Point(x, y), radius) {}
-
-    Circle(Point centre, double radius = 0) : centre(centre), radius(radius) {}
-
     Circle(std::string& str);
+    Circle(const Circle& circle);
     ~Circle();
-
-    Circle(const Circle& circle) : radius(circle.radius)
-    {
-        centre = Point(circle.centre.getX(), circle.centre.getY());
-        if (debugConstructor)
-            std::cout << "Copy Konstruktor der Klasse <Circle>, Object: <" << getId() << ">" << std::endl;
-    }
 
     Point& getCentre() { return centre; }
     void setCentre(const Point& centre) { Circle::centre = centre; }

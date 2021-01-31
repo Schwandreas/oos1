@@ -117,3 +117,22 @@ Point::~Point() {
     if (debugConstructor)
         std::cout << "Destruktor der Klasse <Point>, Object: <" << getId() << ">" << std::endl;
 }
+
+MyData* Point::clone() const {
+    Point* p = new Point(*this);
+    return p;
+}
+
+Point::Point(const Point& p) : x(p.x), y(p.y) {
+    if (debugConstructor)
+        std::cout << "Copy Konstruktor der Klasse <Point>, Object: <" << getId() << ">" << std::endl;
+}
+
+Point::Point(double x, double y) : x(x), y(y) {
+    if (debugConstructor)
+        std::cout << "Konstruktor der Klasse <Point>, Object: <" << getId() << ">" << std::endl;
+}
+
+MyData& Point::operator=(const MyData& data) {
+    return MyData::operator=(data);
+}

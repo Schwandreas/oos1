@@ -24,6 +24,8 @@
     <ClInclude Include="Fahrzeug.hpp" />
     <ClInclude Include="Fifo.hpp" />
     <ClInclude Include="Labyrinth.hpp" />
+    <ClInclude Include="MyData.hpp" />
+    <ClInclude Include="MyList.hpp" />
     <ClInclude Include="MyString.hpp" />
     <ClInclude Include="OneDimObject.hpp" />
     <ClInclude Include="PlgElement.hpp" />
@@ -37,6 +39,8 @@
     <ClCompile Include="Fahrzeug.cpp" />
     <ClCompile Include="Fifo.cpp" />
     <ClCompile Include="Labyrinth.cpp" />
+    <ClCompile Include="MyData.cpp" />
+    <ClCompile Include="MyList.cpp" />
     <ClCompile Include="MyString.cpp" />
     <ClCompile Include="OneDimObject.cpp" />
     <ClCompile Include="PlgElement.cpp" />

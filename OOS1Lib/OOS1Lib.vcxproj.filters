@@ -48,6 +48,12 @@
     <ClInclude Include="DrawingObject.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MyList.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MyData.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Labyrinth.cpp">
@@ -81,6 +87,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="OneDimObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MyList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MyData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

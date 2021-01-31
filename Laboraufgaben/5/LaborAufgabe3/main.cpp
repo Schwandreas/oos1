@@ -1,10 +1,14 @@
 #include <iostream>
-#include "../../../OOS1Lib/Circle.hpp"
-#include "../../../OOS1Lib/MyList.hpp"
-#include "../../../OOS1Lib/Point.hpp"
+#include "../../../OOS1Lib/Circle.cpp"
+#include "../../../OOS1Lib/MyList.cpp"
+#include "../../../OOS1Lib/Point.cpp"
+#include "../../../Hausaufgaben/3/Aufgabe1/ObjectCounter.cpp"
+
 using namespace std;
 
 int main() {
+	debugConstructor = false;
+
 	Point p1(1,1);
 	Point p2(2,2);
 	Point p3(3,3);

@@ -2,22 +2,19 @@
 
 #include <ostream>
 
+
+#include "MyData.hpp"
 #include "OneDimObject.hpp"
 
-class Point : public OneDimObject {
+class Point : public OneDimObject, public MyData {
     double x, y;
 
 public:
-    Point(double x = 0, double y = 0) : x(x), y(y) {
-        if (debugConstructor)
-            std::cout << "Konstruktor der Klasse <Point>, Object: <" << getId() << ">" << std::endl;
-    }
+    Point(double x = 0, double y = 0);
     Point(std::string& str);
-    Point(const Point& p) : x(p.x), y(p.y) {
-        if (debugConstructor)
-            std::cout << "Copy Konstruktor der Klasse <Point>, Object: <" << getId() << ">" << std::endl;
-    }
+    Point(const Point& p);
     ~Point();
+
 
     double getX() const { return x; }
     void setX(double x) { this->x = x; }
@@ -39,5 +36,7 @@ public:
     friend Point operator+(double a, const Point& b);
 
     friend std::istringstream& operator>>(std::istringstream& str, Point& p);
-    friend std::ostream& operator<<(std::ostream& stream, const Point& p);
+    friend std::ostream&       operator<<(std::ostream& stream, const Point& p);
+    MyData*                    clone() const override;
+    MyData&                    operator=(const MyData&) override;
 };
