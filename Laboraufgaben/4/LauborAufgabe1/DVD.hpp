@@ -12,9 +12,13 @@ public:
 
 public:
 	// Standardkonstruktor
-	DVD(string t = "", string v = "", int j = 0, int d = 0) : Medium(t, v, j, "DVD"), dauer(d) {}
+	DVD(string t = "", string v = "", int j = 0, int d = 0) : Medium(t, v, j), dauer(d) {}
 	// die DVD auf der Konsole ausgeben
 	void print() const;
+	Medium* clone() override
+	{
+		return new DVD(*this);
+	}
 };
 
 void DVD::print() const {

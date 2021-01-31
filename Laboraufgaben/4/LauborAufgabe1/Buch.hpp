@@ -9,11 +9,15 @@ class Buch : public Medium{
 	string autor;
 public:
 	// Standardkonstruktor
-	Buch(string t = "", string a = "", string v = "", int jahr = 0) : Medium(t, v, jahr, "Buch"), autor(a) {}
-    const string getAutor() const {return autor;}
+	Buch(string t = "", string a = "", string v = "", int jahr = 0) : Medium(t, v, jahr), autor(a) {}
+	const string getAutor() const { return autor; }
 
-    // das Buch auf der Konsole ausgeben
+	// das Buch auf der Konsole ausgeben
 	void print() const;
+	Medium* clone() override
+	{
+		return new Buch(*this);
+	}
 };
 
 void Buch::print() const {

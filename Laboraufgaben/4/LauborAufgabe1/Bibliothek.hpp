@@ -23,9 +23,7 @@ public:
 	// Destruktor
 	~Bibliothek();
 	// Kopie eines Buches in den Katalog der Bibliothek eintragen
-	void mediumBeschaffen(Buch &);
-	// Kopie einer DVD in den Katalog der Bibliothek eintragen
-	void mediumBeschaffen(DVD &);
+	void mediumBeschaffen(Medium& medium);
 	// alle Medien auf der Konsole ausgeben, 
 	// die im Titel das Suchwort enthalten
 	void mediumSuchen(string suchwort);
@@ -48,17 +46,12 @@ Bibliothek::~Bibliothek() {
     delete[] medien;
 }
 
-void Bibliothek::mediumBeschaffen(Buch & inputBuch) {
-    Buch * b = new Buch(inputBuch.getTitel(), inputBuch.getAutor(), inputBuch.getVerlag(), inputBuch.getJahr());
-    medien[anz++] = b;
+void Bibliothek::mediumBeschaffen(Medium& medium) {
+	// Not sure why we should use clone; would this not be suitable: medien[anz++] = &medium;
+	medien[anz++] = medium.clone();
 }
 
-void Bibliothek::mediumBeschaffen(DVD & inputDvd) {
-    DVD * d =  new DVD(inputDvd.getTitel(), inputDvd.getVerlag(), inputDvd.getJahr(), inputDvd.getDauer());
-    medien[anz++] = d;
-}
-
-inline void Bibliothek::mediumSuchen(string suchwort) {
+void Bibliothek::mediumSuchen(string suchwort) {
 	cout << endl << "Suche nach \"" << suchwort << "\. Ergebnis:" << endl << endl;
 
     for (int i = 0; i < anz; ++i) {

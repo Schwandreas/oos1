@@ -21,24 +21,17 @@ public:
 private:
     // Jahr, in dem das Medium veröffentlicht wurde
 	const int jahr;
-	// Typ des Mediums (z.B. Buch, DVD, ...)
-	// wird von den abgeleiteten Klassen festgelegt
-	const string typ;
 	// ausgeliehen von
 	Person * ausleiher = nullptr;
 	// ausgeliehen am 
 	Datum von;
 	// ausgeliehen bis
 	Datum bis;
-
 public:
 	// Konstruktor
-	Medium(string t = "", string v = "", int j = 0, 
-		   string typ = "undef") : titel(t), verlag(v), jahr(j), typ(typ){}
+	Medium(string t = "", string v = "", int j = 0) : titel(t), verlag(v), jahr(j) {}
 	// Titel zurückliefern
-	string getTitel() const {return titel;}
-	// Typ zurückliefern
-	string getTyp() const {return typ;}
+	string getTitel() const { return titel; }
 	// Ausleiher zurückliefern
 	Person * getAusleiher() const {return ausleiher;}
 
@@ -48,6 +41,9 @@ public:
 	virtual void print() const;
 
     const int getJahr() const { return jahr; }
+
+	// The "Virtual Copy Constructor"
+	virtual Medium* clone() = 0;
 };
 
 
@@ -60,7 +56,6 @@ void Medium::ausleihen(Person &p, Datum von, Datum bis) {
 
 void Medium::print() const {
 	cout << "------------------------" << endl;
-	std::cout << this->typ << endl;
 	std::cout << "Titel:      " << this->titel << endl;
 	std::cout << "Verlag:     " << this->verlag << endl;
 	std::cout << "Jahr:       " << this->jahr << endl;
