@@ -10,7 +10,7 @@ void p(string s, bool nl = true) {
 class A {
 public:
 	void f1() { p("A::f1()"); }
-	void f2() { p("A::f2()"); }
+	virtual void f2() { p("A::f2()"); }
 	void f3() { p("A::f3()"); }
 	void f4() { p("A::f4()", false); f2(); }
 };
@@ -20,14 +20,14 @@ public:
 	void f1() { p("B::f1()"); }
 	void f2() { p("B::f2()"); }
 	void f3() { p("B::f3()"); }
-	void f4() { p("B::f4()", false); f2(); }
+	virtual void f4() { p("B::f4()", false); f2(); }
 };
 
 class C : public B {
 public:
 	void f1() { p("C::f1()"); }
 	void f2() { p("C::f2()"); }
-	void f3() { p("C::f3()"); }
+	virtual void f3() { p("C::f3()"); }
 	void f4() { p("C::f4()", false); f2(); }
 };
 
@@ -56,5 +56,3 @@ int main() {
 	bptr->f4();
 	cptr->f4();
 }
-
-
