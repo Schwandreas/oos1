@@ -65,6 +65,7 @@ PlgElement* Polygonline::getEnd() const {
 }
 
 std::string Polygonline::toString() const {
+    checkPossibleLoopAndThrowException();
     std::ostringstream stream;
     stream << std::setprecision(1) << std::fixed;
     stream << "|";
@@ -118,4 +119,20 @@ Polygonline& Polygonline::operator+(const Polygonline& p) {
 Polygonline::~Polygonline() {
     if (debugConstructor)
         std::cout << "Destruktor der Klasse <Circle>, Object: <" << getId() << ">" << std::endl;
+}
+
+void Polygonline::checkPossibleLoopAndThrowException()const {
+    int ids[100];
+    int index = 0;
+    PlgElement* next = start;
+
+    while (next != nullptr)
+    {
+        for (int i = 0; i < index; ++i) {
+            if (ids[i] == next->getPoint().getId())
+                throw LoopInLine(this->getId());
+        }
+        ids[index++] = next->getPoint().getId();
+        next = next->getNext();
+    }
 }

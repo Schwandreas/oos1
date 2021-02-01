@@ -4,9 +4,9 @@
 
 class ObjectCounter
 {
-	int        id;
 	static int maxId;
 	static int number;
+	int        id;
 public:
 	ObjectCounter()
 	{
@@ -20,7 +20,10 @@ public:
 		ObjectCounter::number--;
 	}
 
-	int getId() { return id; }
+	virtual int getId() const
+	{
+		return id;
+	}
 
 	static int getMaxId() { return maxId; }
 

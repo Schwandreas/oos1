@@ -7,6 +7,7 @@
 class Polygonline : public OneDimObject {
     PlgElement* start = nullptr, * end = nullptr;
 
+    void checkPossibleLoopAndThrowException()const;
 public:
     Polygonline() {
         if (debugConstructor)
@@ -31,4 +32,9 @@ public:
     ~Polygonline();
 
     friend std::ostream& operator<<(std::ostream& stream, const Polygonline& line);
+    class LoopInLine : public DrawingObject::GraphException {
+    public:
+        LoopInLine(int id) : GraphException(id) {}
+        int getId() const { return id; }
+    };
 };
