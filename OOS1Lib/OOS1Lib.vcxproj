@@ -32,6 +32,7 @@
     <ClInclude Include="Point.hpp" />
     <ClInclude Include="Polygonline.hpp" />
     <ClInclude Include="Position.hpp" />
+    <ClInclude Include="Rectangle.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Circle.cpp" />
@@ -47,6 +48,7 @@
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="Polygonline.cpp" />
     <ClCompile Include="Position.cpp" />
+    <ClCompile Include="Rectangle.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

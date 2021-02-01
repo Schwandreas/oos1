@@ -3,6 +3,6 @@
 bool debugConstructor = true;
 
 class DrawingObject : public ObjectCounter {
+public:
+    virtual void print(bool = false) const = 0;
 };
-
-
